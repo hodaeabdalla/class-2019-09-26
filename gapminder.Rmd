@@ -1,0 +1,22 @@
+---
+title: "Gapminder"
+author: "Hoda Abdalla"
+date: "9/26/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(gapminder)
+library(tidyverse)
+```
+
+```{r Make Plot}
+gapminder %>%
+  filter(year == "1962", continent %in% c("Africa", "Americas", "Asia")) %>%
+  ggplot(aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  facet_wrap(~continent)
+
+```
+
